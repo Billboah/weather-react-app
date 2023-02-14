@@ -6,7 +6,7 @@ const CurrentWeather = ({
   weather: { details, temp, icon, name, timezone, dt, country },
 }) => {
   return (
-    <div className="flex ">
+    <div className="flex gab-3 sm:gab-5 md:gap-9 ">
       <div className="text-7xl md:text-9xl flex justify-center items-center">
         <div>{temp.toFixed()}&deg;</div>
       </div>
