@@ -1,5 +1,4 @@
 import React from "react";
-import { UilLocationPoint } from "@iconscout/react-unicons";
 
 const Cities = ({ setQuery }) => {
   const cities = [
@@ -25,24 +24,8 @@ const Cities = ({ setQuery }) => {
     },
   ];
 
-  const handleLocationClick = () => {
-    if ("geolocation" in navigator) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setQuery({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-        });
-      });
-    }
-  };
-
   return (
     <div className="flex flex-col items-baseline py-5 px-2 border-b-2 border-white border-opacity-50">
-      <UilLocationPoint
-        className=" cursor-pointer transition ease-out hover:scale-125 m-0 animate-pulse "
-        onClick={handleLocationClick}
-        size={25}
-      />
       {cities.map((city) => (
         <button
           key={city.id}
