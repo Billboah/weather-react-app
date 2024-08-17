@@ -17,7 +17,7 @@ const CurrentWeather = ({
         <div className="text-sm pt-3">
           {DateTime.fromSeconds(dt)
             .setZone(timezone)
-            .toFormat("cccc,dd/MM/yyyy hh:mm a")}
+            .toFormat("cccc, dd/MM/yyyy hh:mm a")}
         </div>
       </div>
       <div className="text-sm flex flex-col justify-between items-center  py-6 md:py-16">
