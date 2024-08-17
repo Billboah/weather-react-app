@@ -20,8 +20,6 @@ function App() {
   const [units, setUnits] = useState("metric");
   const [weather, setWeather] = useState("");
   const [query, setQuery] = useState("");
-
-  // eslint-disable-next-line no-unused-vars
   let [bodyBackground, setBodyBackground] = useState({
     backgroundImage: `url(${rainyNight})`,
   });
@@ -82,7 +80,7 @@ function App() {
           <Title setUnits={setUnits} units={units} />
           {weather && <CurrentWeather weather={weather} />}
         </div>
-        <div className="bg-white bg-opacity-20 py-10 px-10 w-full md:w-2/5 md:h-full overflow-y-scroll h-3/5 border-1-inherit shadow-lg md:text-5 relative">
+        <div className="bg-white bg-opacity-20 py-10 px-10 w-full md:w-2/5 md:h-full overflow-y-auto h-3/5 border-1-inherit shadow-lg md:text-5 relative">
           <Search setQuery={setQuery} weather={weather} />
           <Cities setQuery={setQuery} />
           {weather && <Details weather={weather} />}

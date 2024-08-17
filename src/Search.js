@@ -8,7 +8,7 @@ const Search = ({ setQuery, weather: { icon } }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
     if (city.length === 0) {
-      alert("Please type in a city");
+      alert("Please enter a city name");
     } else {
       setQuery({ q: city });
       setCity("");

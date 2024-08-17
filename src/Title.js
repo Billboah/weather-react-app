@@ -1,44 +1,25 @@
 import React from "react";
+import { useState } from "react";
 
 const Title = ({ setUnits }) => {
+  const [isCelsius, setIsCelsius] = useState(true);
+
   const handleUnitsChange = () => {
-    let celcius = document.querySelector("#celcius");
-    let farin = document.querySelector("#farin");
-    let farinSetting = farin.style.display;
-    if (farinSetting === "block") {
-      celcius.style.display = "block";
-      farin.style.display = "none";
-    } else {
-      celcius.style.display = "none";
-      farin.style.display = "block";
-    }
+    const newUnits = isCelsius ? "imperial" : "metric";
+    setUnits(newUnits);
+    setIsCelsius(!isCelsius);
   };
 
   return (
     <div className="flex justify-between">
       <h4 className="font-bold">the weather</h4>
-      <div
-        className="text-3xl absolute top-3 right-3 p-4 rounded-full  bg-white bg-opacity-20  "
+      <button
+        className="h-10 w-20 font-medium flex justify-center items-center text-2xl absolute top-3 right-3 rounded-full border shadow-lg"
         onClick={handleUnitsChange}
         aria-hidden="true"
       >
-        <button
-          id="celcius"
-          className="block font-medium"
-          onClick={(e) => setUnits(e.currentTarget.name)}
-          name="imperial"
-        >
-          &deg;C
-        </button>
-        <button
-          id="farin"
-          className="hidden font-medium"
-          onClick={(e) => setUnits(e.currentTarget.name)}
-          name="metric"
-        >
-          &deg;F
-        </button>
-      </div>
+        {isCelsius ? "°C" : "°F"}
+      </button>
     </div>
   );
 };
